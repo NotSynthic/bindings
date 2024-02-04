@@ -2436,7 +2436,7 @@ class EditLevelLayer : cocos2d::CCLayer, TextInputDelegate, FLAlertLayerProtocol
 	void onGuidelines(cocos2d::CCObject* sender) = win 0x9da70;
 	void onHelp(cocos2d::CCObject* sender) = win 0x9f3c0;
 	void onLevelInfo(cocos2d::CCObject* sender) = win 0x9db40;
-	void onLevelLeaderboard(cocos2d::CCObject* sender);
+	void onLevelLeaderboard(cocos2d::CCObject* sender) = win 0x9dae0;
 	void onLowDetailMode(cocos2d::CCObject* sender);
 	void onMoveToTop() = win 0x9f740;
 	void onPlay(cocos2d::CCObject* sender) = win 0x9ea10;
@@ -2444,15 +2444,15 @@ class EditLevelLayer : cocos2d::CCLayer, TextInputDelegate, FLAlertLayerProtocol
 	void onShare(cocos2d::CCObject* sender) = win 0x9ee00;
 	void onTest(cocos2d::CCObject* sender);
 	void onUpdateDescription(cocos2d::CCObject* sender) = win 0x9ec80;
-	TodoReturn playStep2();
-	TodoReturn playStep3();
+	TodoReturn playStep2() = win 0x9eb40;
+	TodoReturn playStep3() = win 0x9ec00;
 	TodoReturn scene(GJGameLevel*);
-	TodoReturn setupLevelInfo();
+	TodoReturn setupLevelInfo() = win 0x9dd80;
 	TodoReturn updateDescText(char const*);
 	TodoReturn verifyLevelName() = win 0x9f8f0;
 
-	virtual void keyBackClicked();
-	virtual void keyDown(cocos2d::enumKeyCodes);
+	virtual void keyBackClicked() = win 0x9fb90;
+	virtual void keyDown(cocos2d::enumKeyCodes) = win 0x9fba0;
 	virtual void setIDPopupClosed(SetIDPopup*, int);
 	virtual void FLAlert_Clicked(FLAlertLayer*, bool) = win 0x9f160;
 	virtual TodoReturn textInputOpened(CCTextInputNode*);
