@@ -63,10 +63,10 @@ class AccountLoginLayer : FLAlertLayer, TextInputDelegate, GJAccountLoginDelegat
 	TodoReturn createTextLabel(cocos2d::CCPoint, char const*, cocos2d::CCSize);
 	TodoReturn disableNodes();
 	TodoReturn hideLoadingUI();
-	bool init(gd::string);
+	bool init(gd::string) = win 0x55cb0;
 	void onClose(cocos2d::CCObject* sender);
-	void onForgotPassword(cocos2d::CCObject* sender);
-	void onForgotUser(cocos2d::CCObject* sender);
+	void onForgotPassword(cocos2d::CCObject* sender) = win 0x56440;
+	void onForgotUser(cocos2d::CCObject* sender) = win 0x56420;
 	void onSubmit(cocos2d::CCObject* sender);
 	TodoReturn resetLabel(int);
 	TodoReturn resetLabels();
@@ -1347,7 +1347,7 @@ class CharacterColorPage : FLAlertLayer {
 	TodoReturn createColorMenu() = win 0x5f630;
 	TodoReturn FLAlert_Clicked(FLAlertLayer*, bool);
 	TodoReturn offsetForIndex(int);
-	void onClose(cocos2d::CCObject* sender);
+	void onClose(cocos2d::CCObject* sender) = win 0x608A0;
 	void onMode(cocos2d::CCObject* sender);
 	void onPlayerColor(cocos2d::CCObject* sender);
 	TodoReturn toggleGlow(cocos2d::CCObject*);
@@ -1749,9 +1749,9 @@ class CreateGuidelinesLayer : FLAlertLayer, FLAlertLayerProtocol {
 class CreateMenuItem : CCMenuItemSpriteExtra {
 	// virtual ~CreateMenuItem();
 
-	static CreateMenuItem* create(cocos2d::CCNode*, cocos2d::CCNode*, cocos2d::CCObject*, cocos2d::SEL_MenuHandler);
+	static CreateMenuItem* create(cocos2d::CCNode*, cocos2d::CCNode*, cocos2d::CCObject*, cocos2d::SEL_MenuHandler) = win 0xddb80;
 
-	bool init(cocos2d::CCNode*, cocos2d::CCNode*, cocos2d::CCObject*, cocos2d::SEL_MenuHandler);
+	bool init(cocos2d::CCNode*, cocos2d::CCNode*, cocos2d::CCObject*, cocos2d::SEL_MenuHandler) = win 0x258f0;
 }
 
 [[link(android)]]
@@ -2681,7 +2681,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
 	void onCopy(cocos2d::CCObject* sender) = win 0xcaf00;
 	void onCopyState(cocos2d::CCObject* sender) = win 0xcbcd0;
 	TodoReturn onCreate();
-	void onCreateButton(cocos2d::CCObject* sender);
+	void onCreateButton(cocos2d::CCObject* sender) = win 0xc7d50;
 	TodoReturn onCreateObject(int);
 	void onDelete(cocos2d::CCObject* sender);
 	void onDeleteAll(cocos2d::CCObject* sender);
@@ -2784,13 +2784,13 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
 	TodoReturn tryUpdateTimeMarkers();
 	TodoReturn undoLastAction(cocos2d::CCObject*) = win 0xc9b40;
 	TodoReturn updateButtons() = win 0xa6310;
-	TodoReturn updateCreateMenu(bool);
+	TodoReturn updateCreateMenu(bool) = win 0xc7d90;
 	TodoReturn updateDeleteButtons();
 	TodoReturn updateDeleteMenu();
 	TodoReturn updateEditButtonColor(int, cocos2d::ccColor3B) = win 0xcc030;
 	TodoReturn updateEditColorButton();
 	TodoReturn updateEditMenu();
-	TodoReturn updateGridNodeSize();
+	TodoReturn updateGridNodeSize() = win 0xa6f20;
 	TodoReturn updateGridNodeSize(int);
 	TodoReturn updateGroupIDBtn2();
 	TodoReturn updateGroupIDLabel() = win 0xd47d0;
@@ -2974,7 +2974,7 @@ class EffectGameObject : EnhancedGameObject {
 	void setTargetID2(int);
 	TodoReturn triggerEffectFinished() = win 0x39cca0;
 	TodoReturn updateInteractiveHover(float);
-	TodoReturn updateSpecialColor();
+	TodoReturn updateSpecialColor() = win 0x39e750;
 	TodoReturn updateSpeedModType();
 
 	virtual void setOpacity(unsigned char);
@@ -8692,7 +8692,7 @@ class LevelEditorLayer : GJBaseGameLayer, LevelSettingsDelegate {
 	TodoReturn getNextFreeOrderChannel(cocos2d::CCArray*) = win 0x241870;
 	TodoReturn getNextFreeSFXGroupID(cocos2d::CCArray*);
 	TodoReturn getNextFreeSFXID(cocos2d::CCArray*);
-	TodoReturn getObjectRect(GameObject*, bool, bool);
+	TodoReturn getObjectRect(GameObject*, bool, bool) = win 0x23cb10;
 	TodoReturn getRelativeOffset(GameObject*);
 	TodoReturn getSavedEditorPosition(int);
 	TodoReturn getSavedEditorPositions();
@@ -10157,11 +10157,11 @@ class OBB2D : cocos2d::CCNode {
 
 	static OBB2D* create(cocos2d::CCPoint, float, float, float) = win 0x49fb0;
 
-	TodoReturn calculateWithCenter(cocos2d::CCPoint, float, float, float);
-	TodoReturn computeAxes();
-	TodoReturn getBoundingRect();
+	TodoReturn calculateWithCenter(cocos2d::CCPoint, float, float, float) = win 0x4a140;
+	TodoReturn computeAxes() = win 0x4a310;
+	TodoReturn getBoundingRect() = win 0x4a670;
 	bool init(cocos2d::CCPoint, float, float, float);
-	TodoReturn orderCorners();
+	TodoReturn orderCorners() = win 0x4a3e0;
 	TodoReturn overlaps(OBB2D*);
 	TodoReturn overlaps1Way(OBB2D*);
 }
@@ -10218,8 +10218,8 @@ class ObjectToolbox : cocos2d::CCNode {
 	static ObjectToolbox* sharedState() = win 0x28b340;
 
 	TodoReturn allKeys();
-	TodoReturn gridNodeSizeForKey(int);
-	TodoReturn intKeyToFrame(int);
+	TodoReturn gridNodeSizeForKey(int) = win 0x2af310;
+	TodoReturn intKeyToFrame(int) = win 0x166920;
 	TodoReturn perspectiveBlockFrame(int);
 
 	virtual bool init();
@@ -11116,7 +11116,7 @@ class RateDemonLayer : FLAlertLayer, UploadPopupDelegate, UploadActionDelegate {
 
 	static RateDemonLayer* create(int);
 
-	bool init(int);
+	bool init(int) = win 0x2f35b0;
 	void onClose(cocos2d::CCObject* sender);
 	void onRate(cocos2d::CCObject* sender) = win 0x2f3c20;
 	void selectRating(cocos2d::CCObject*) = win 0x2f3ac0;
@@ -14317,10 +14317,10 @@ class TextAreaDelegate {
 class TextGameObject : GameObject {
 	// virtual ~TextGameObject();
 
-	static TextGameObject* create(cocos2d::CCTexture2D*);
+	static TextGameObject* create(cocos2d::CCTexture2D*) = win 0x147cc0;
 
 	bool init(cocos2d::CCTexture2D*);
-	TodoReturn updateTextObject(gd::string, bool);
+	TodoReturn updateTextObject(gd::string, bool) = win 0x147d90;
 
 	virtual TodoReturn customObjectSetup(gd::vector<gd::string>&, gd::vector<void*>&);
 	virtual TodoReturn getSaveString(GJBaseGameLayer*);
