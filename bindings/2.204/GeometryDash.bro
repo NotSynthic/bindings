@@ -5646,7 +5646,7 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
 	// ~GJBaseGameLayer();
 	// GJBaseGameLayer() = win 0x237ce0;
 
-	TodoReturn activateCustomRing(RingObject*);
+	TodoReturn activateCustomRing(RingObject*) = win 0x1a4270;
 	TodoReturn activatedAudioTrigger(SFXTriggerGameObject*, float);
 	TodoReturn activateEventTrigger(EventLinkTrigger*, gd::vector<int> const&);
 	TodoReturn activateItemCompareTrigger(ItemTriggerGameObject*, gd::vector<int> const&);
@@ -10257,7 +10257,7 @@ class OptionsLayer : GJDropDownLayer, FLAlertLayerProtocol {
 	TodoReturn exitLayer();
 	TodoReturn musicSliderChanged(cocos2d::CCObject*) = win 0x2b0d80;
 	void onAccount(cocos2d::CCObject* sender) = win 0x2b1380;
-	void onHelp(cocos2d::CCObject* sender);
+	void onHelp(cocos2d::CCObject* sender) = win 0x2b1400;
 	void onMenuMusic(cocos2d::CCObject* sender) = win 0x2b0ce0;
 	void onOptions(cocos2d::CCObject* sender);
 	void onProgressBar(cocos2d::CCObject* sender);
@@ -14444,15 +14444,15 @@ class TriggerEffectDelegate {
 class TutorialLayer : FLAlertLayer {
 	// virtual ~TutorialLayer();
 
-	static TutorialLayer* create();
+	static TutorialLayer* create() = win 0x3be0a0;
 
-	TodoReturn loadPage(int);
-	void onClose(cocos2d::CCObject* sender);
-	void onNext(cocos2d::CCObject* sender);
+	TodoReturn loadPage(int) = win 0x3be580;
+	void onClose(cocos2d::CCObject* sender) = win 0x3be9a0;
+	void onNext(cocos2d::CCObject* sender) = win 0x3be560;
 	TodoReturn removeTutorialTexture();
 
-	virtual bool init();
-	virtual void keyBackClicked();
+	virtual bool init() = win 0x3be140;
+	virtual void keyBackClicked() = win 0x3bea00;
 }
 
 [[link(android)]]
