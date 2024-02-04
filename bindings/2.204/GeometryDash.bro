@@ -7687,8 +7687,8 @@ class GJShopLayer : cocos2d::CCLayer, GJPurchaseDelegate, DialogDelegate, Reward
 
 	TodoReturn exitVideoAdItems();
 	bool init(ShopType) = win 0x219b70;
-	void onBack(cocos2d::CCObject* sender);
-	void onCommunityCredits(cocos2d::CCObject* sender);
+	void onBack(cocos2d::CCObject* sender) = win 0x21bc50;
+	void onCommunityCredits(cocos2d::CCObject* sender) = win 0x21b220;
 	void onPlushies(cocos2d::CCObject* sender);
 	void onSelectItem(cocos2d::CCObject* sender) = win 0x21b2c0;
 	void onVideoAd(cocos2d::CCObject* sender);
@@ -7697,16 +7697,16 @@ class GJShopLayer : cocos2d::CCLayer, GJPurchaseDelegate, DialogDelegate, Reward
 	TodoReturn showReactMessage() = win 0x21be50;
 	TodoReturn updateCurrencyCounter();
 
-	virtual void onExit();
-	virtual bool ccTouchBegan(cocos2d::CCTouch*, cocos2d::CCEvent*);
+	virtual void onExit() = win 0x21b120;
+	virtual bool ccTouchBegan(cocos2d::CCTouch*, cocos2d::CCEvent*) = win 0x21caa0;
 	virtual void ccTouchMoved(cocos2d::CCTouch*, cocos2d::CCEvent*);
 	virtual void ccTouchEnded(cocos2d::CCTouch*, cocos2d::CCEvent*);
 	virtual void ccTouchCancelled(cocos2d::CCTouch*, cocos2d::CCEvent*);
 	virtual void registerWithTouchDispatcher();
-	virtual void keyBackClicked();
-	virtual TodoReturn didPurchaseItem(GJStoreItem*);
+	virtual void keyBackClicked() = win 0x21be30;
+	virtual TodoReturn didPurchaseItem(GJStoreItem*) = win 0x21b7a0;
 	virtual TodoReturn rewardedVideoFinished();
-	virtual TodoReturn dialogClosed(DialogLayer*);
+	virtual TodoReturn dialogClosed(DialogLayer*) = win 0x21c8d0;
 }
 
 [[link(android)]]
