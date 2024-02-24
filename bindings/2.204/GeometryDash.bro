@@ -6064,7 +6064,7 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
 	TodoReturn updateAudioVisualizer() = win 0x1ca410;
 	TodoReturn updateBGArtSpeed(float, float);
 	TodoReturn updateCamera(float) = win 0x1be670;
-	TodoReturn updateCameraBGArt(cocos2d::CCPoint, float);
+	TodoReturn updateCameraBGArt(cocos2d::CCPoint, float) = win 0x1c0f00;
 	TodoReturn updateCameraEdge(int, int);
 	void updateCameraMode(EffectGameObject*, bool) = win 0x19aaa0;
 	TodoReturn updateCameraOffsetX(float, float, int, float, int, int);
@@ -7272,18 +7272,18 @@ class GJMessagePopup : FLAlertLayer, UploadActionDelegate, UploadPopupDelegate, 
 class GJMGLayer : cocos2d::CCLayer {
 	// virtual ~GJMGLayer();
 
-	static GJMGLayer* create(int);
+	static GJMGLayer* create(int) = win 0x1f8030;
 
 	TodoReturn deactivateGround();
-	bool init(int);
-	TodoReturn loadGroundSprites(int, bool);
-	TodoReturn scaleGround(float);
+	bool init(int) = win 0x1f80d0;
+	TodoReturn loadGroundSprites(int, bool) = win 0x1f84d0;
+	TodoReturn scaleGround(float) = win 0x1f8720;
 	TodoReturn toggleVisible01(bool);
 	TodoReturn toggleVisible02(bool);
-	TodoReturn updateGroundColor(cocos2d::ccColor3B, bool);
-	TodoReturn updateGroundOpacity(unsigned char, bool);
+	TodoReturn updateGroundColor(cocos2d::ccColor3B, bool) = win 0x1f8640;
+	TodoReturn updateGroundOpacity(unsigned char, bool) = win 0x1f86b0;
 	TodoReturn updateGroundPos(cocos2d::CCPoint);
-	TodoReturn updateGroundWidth(bool);
+	TodoReturn updateGroundWidth(bool) = win 0x1f87b0;
 	TodoReturn updateMG01Blend(bool);
 	TodoReturn updateMG02Blend(bool);
 
