@@ -8288,8 +8288,8 @@ class GraphicsReloadLayer : cocos2d::CCLayer {
 
 	static GraphicsReloadLayer* create(cocos2d::TextureQuality, cocos2d::CCSize, bool, bool) = win 0x2b8460;
 
-	bool init(cocos2d::TextureQuality, cocos2d::CCSize, bool, bool);
-	TodoReturn performReload();
+	bool init(cocos2d::TextureQuality, cocos2d::CCSize, bool, bool) = win 0x2b8520;
+	TodoReturn performReload() = win 0x2b85b0;
 	TodoReturn scene(cocos2d::TextureQuality, cocos2d::CCSize, bool, bool);
 }
 
