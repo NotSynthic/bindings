@@ -6,18 +6,18 @@ class AccountHelpLayer : GJDropDownLayer, GJAccountDelegate, FLAlertLayerProtoco
 
 	static AccountHelpLayer* create() = win 0x58a10;
 
-	TodoReturn doUnlink();
+	TodoReturn doUnlink() = win 0x591e0;
 	TodoReturn exitLayer();
-	void onAccountManagement(cocos2d::CCObject* sender);
-	void onReLogin(cocos2d::CCObject* sender);
-	void onUnlink(cocos2d::CCObject* sender);
-	TodoReturn updatePage();
-	TodoReturn verifyUnlink();
+	void onAccountManagement(cocos2d::CCObject* sender) = win 0x58f90;
+	void onReLogin(cocos2d::CCObject* sender) = win 0x58f50;
+	void onUnlink(cocos2d::CCObject* sender) = win 0x59010;
+	TodoReturn updatePage() = win 0x59230;
+	TodoReturn verifyUnlink() = win 0x59160;
 
 	virtual void customSetup() = win 0x58b90;
-	virtual TodoReturn layerHidden();
-	virtual TodoReturn accountStatusChanged();
-	virtual TodoReturn FLAlert_Clicked(FLAlertLayer*, bool);
+	virtual TodoReturn layerHidden() = win 0x594f0;
+	virtual TodoReturn accountStatusChanged() = win 0x59220;
+	virtual TodoReturn FLAlert_Clicked(FLAlertLayer*, bool) = win 0x59480;
 }
 
 [[link(android)]]
