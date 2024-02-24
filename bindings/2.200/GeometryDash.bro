@@ -4736,7 +4736,7 @@ class GameStatsManager : cocos2d::CCNode {
 	TodoReturn getPathRewardKey(int);
 	TodoReturn getSecretCoinKey(char const*);
 	int getItemUnlockState(int, UnlockType) = mac 0x77e40;
-	TodoReturn getQueuedChallenge(int);
+	GJChallengeItem* getQueuedChallenge(int);
 	TodoReturn getCompletedMapPacks();
 	TodoReturn getGauntletRewardKey(int) = mac 0x78490;
 	TodoReturn getNextVideoAdReward();
@@ -9954,7 +9954,7 @@ class ChallengesPage : FLAlertLayer, FLAlertLayerProtocol, GJChallengeDelegate, 
 	TodoReturn updateTimers(float);
 	TodoReturn exitNodeAtSlot(int, float);
 	TodoReturn tryGetChallenges();
-	TodoReturn createChallengeNode(int, bool, float, bool) = mac 0x37b890;
+	ChallengeNode* createChallengeNode(int number, bool skipAnimation, float animLength, bool isNew) = mac 0x37b890;
 	TodoReturn claimItem(ChallengeNode*, GJChallengeItem*, cocos2d::CCPoint);
 
 	virtual bool init() = mac 0x37abe0;
@@ -9965,6 +9965,14 @@ class ChallengesPage : FLAlertLayer, FLAlertLayerProtocol, GJChallengeDelegate, 
 	virtual TodoReturn challengeStatusFinished();
 	virtual TodoReturn challengeStatusFailed();
 	virtual TodoReturn currencyWillExit(CurrencyRewardLayer*);
+	
+	cocos2d::CCArray* m_dots;
+	cocos2d::CCLabelBMFont* m_countdownLabel;
+	LoadingCircle* m_circle;
+	bool m_triedToLoad;
+	bool m_unkBool;
+	CurrencySpriteType m_currencySpriteType;
+	cocos2d::CCDictionary* m_challengeNodes;
 }
 
 [[link(android)]]
@@ -10760,7 +10768,7 @@ class FMODAudioEngine : cocos2d::CCNode {
 	void setChannelPitch(int, AudioTargetType, float) = win 0x37620;
 	TodoReturn channelLinkSound(int, FMODSound*);
 	TodoReturn countActiveMusic();
-	TodoReturn getEffectsVolume() = mac 0x3c5050;
+	float getEffectsVolume() = mac 0x3c5050;
 	TodoReturn getMeteringValue();
 	TodoReturn getMusicLengthMS(int) = win 0x3a2e0;
 	TodoReturn getNextChannelID();
@@ -10801,7 +10809,7 @@ class FMODAudioEngine : cocos2d::CCNode {
 	TodoReturn fadeInBackgroundMusic(float);
 	TodoReturn getActiveMusicChannel(int);
 	TodoReturn updateTemporaryEffects();
-	TodoReturn getBackgroundMusicVolume() = mac 0x3c5010;
+	float getBackgroundMusicVolume() = mac 0x3c5010;
 	/* unverified signature */
 	void setBackgroundMusicVolume(float);
 	TodoReturn queuedEffectFinishedLoading(gd::string) = win 0x38f60;
