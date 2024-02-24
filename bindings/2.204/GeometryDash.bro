@@ -203,7 +203,7 @@ class AchievementsLayer : GJDropDownLayer {
 	void onNextPage(cocos2d::CCObject* sender) = win 0x5b040;
 	void onPrevPage(cocos2d::CCObject* sender) = win 0x5b050;
 	TodoReturn setupLevelBrowser(cocos2d::CCArray*);
-	TodoReturn setupPageInfo(int, int, int);
+	TodoReturn setupPageInfo(int, int, int) = win 0x5afc0;
 
 	virtual void keyDown(cocos2d::enumKeyCodes);
 	virtual void customSetup() = win 0x5aab0;
@@ -5633,7 +5633,7 @@ class GJAccountManager : cocos2d::CCNode {
 
 	void addDLToActive(char const* tag, cocos2d::CCObject*) = win 0x18aba0;
 	void addDLToActive(char const* tag);
-	TodoReturn backupAccount(gd::string);
+	TodoReturn backupAccount(gd::string) = win 0x18b800;
 	TodoReturn dataLoaded(DS_Dictionary*);
 	TodoReturn encodeDataTo(DS_Dictionary*);
 	TodoReturn firstSetup();
@@ -8229,12 +8229,12 @@ class GJWriteMessagePopup : FLAlertLayer, TextInputDelegate, UploadMessageDelega
 class GManager : cocos2d::CCNode {
 	// virtual ~GManager();
 
-	TodoReturn getCompressedSaveString();
-	TodoReturn getSaveString();
+	TodoReturn getCompressedSaveString() = win 0x473a0;
+	TodoReturn getSaveString() = win 0x472e0;
 	TodoReturn load();
-	TodoReturn loadDataFromFile(gd::string const&);
-	TodoReturn loadFromCompressedString(gd::string&);
-	TodoReturn loadFromString(gd::string&);
+	TodoReturn loadDataFromFile(gd::string const&) = win 0x47690;
+	TodoReturn loadFromCompressedString(gd::string&) = win 0x474e0;
+	TodoReturn loadFromString(gd::string&) = win 0x47430;
 	inline void save() {
 		saveGMTo(m_fileName);
 	}
