@@ -971,7 +971,7 @@ class CCPartAnimSprite : cocos2d::CCSprite {
 	TodoReturn createWithAnimDesc(char const*, cocos2d::CCTexture2D*, bool);
 	TodoReturn dirtify();
 	TodoReturn getSpriteForKey(char const*);
-	TodoReturn initWithAnimDesc(char const*, cocos2d::CCTexture2D*, bool);
+	TodoReturn initWithAnimDesc(char const*, cocos2d::CCTexture2D*, bool) = win 0x26670;
 	void setColor(cocos2d::ccColor3B) = win 0x27270;
 	void setFlipX(bool);
 	void setFlipY(bool);
@@ -1108,8 +1108,8 @@ class CCSpritePlus : cocos2d::CCSprite {
 	virtual void setScale(float) = win 0x28d10;
 	virtual void setPosition(cocos2d::CCPoint const&) = win 0x288f0;
 	virtual void setRotation(float) = win 0x28950;
-	virtual void setRotationX(float);
-	virtual void setRotationY(float);
+	virtual void setRotationX(float) = win 0x289d0;
+	virtual void setRotationY(float) = win 0x28a50;
 	virtual bool initWithTexture(cocos2d::CCTexture2D*);
 	virtual bool initWithSpriteFrameName(char const*) = win 0x288b0;
 	virtual void setFlipX(bool);
@@ -5634,13 +5634,13 @@ class GJAccountManager : cocos2d::CCNode {
 	void addDLToActive(char const* tag, cocos2d::CCObject*) = win 0x18aba0;
 	void addDLToActive(char const* tag);
 	TodoReturn backupAccount(gd::string) = win 0x18b800;
-	TodoReturn dataLoaded(DS_Dictionary*);
+	TodoReturn dataLoaded(DS_Dictionary*) = win 0x18cf70;
 	TodoReturn encodeDataTo(DS_Dictionary*);
 	TodoReturn firstSetup();
 	TodoReturn getAccountBackupURL() = win 0x18b530;
 	TodoReturn getAccountSyncURL() = win 0x18bdc0;
 	TodoReturn getDLObject(char const*);
-	TodoReturn getShaPassword(gd::string);
+	TodoReturn getShaPassword(gd::string) = win 0x18d140;
 	TodoReturn handleIt(bool, gd::string, gd::string, GJHttpType) = win 0x18a830;
 	TodoReturn handleItDelayed(bool, gd::string, gd::string, GJHttpType);
 	TodoReturn handleItND(cocos2d::CCNode*, void*);
