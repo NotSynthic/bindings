@@ -44,12 +44,12 @@ class AccountLayer : GJDropDownLayer, GJAccountDelegate, GJAccountBackupDelegate
 
 	virtual void customSetup() = win 0x575c0;
 	virtual TodoReturn layerHidden() = win 0x589b0;
-	virtual TodoReturn backupAccountFinished();
-	virtual TodoReturn backupAccountFailed(BackupAccountError, int);
-	virtual TodoReturn syncAccountFinished();
-	virtual TodoReturn syncAccountFailed(BackupAccountError, int);
+	virtual TodoReturn backupAccountFinished() = win 0x583a0;
+	virtual TodoReturn backupAccountFailed(BackupAccountError, int) = win 0x58500;
+	virtual TodoReturn syncAccountFinished() = win 0x58730;
+	virtual TodoReturn syncAccountFailed(BackupAccountError, int) = win 0x58890;
 	virtual TodoReturn accountStatusChanged();
-	virtual TodoReturn FLAlert_Clicked(FLAlertLayer*, bool);
+	virtual TodoReturn FLAlert_Clicked(FLAlertLayer*, bool) = win 0x58940;
 }
 
 [[link(android)]]
