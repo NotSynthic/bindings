@@ -786,33 +786,6 @@ class cocos2d::CCDouble {
 	double getValue() const;
 }
 
-[[link(win, android)]]
-class cocos2d::CCDrawNode {
-	static cocos2d::CCDrawNode* create();
-
-	cocos2d::_ccBlendFunc getBlendFunc() const;
-
-	void setBlendFunc(cocos2d::_ccBlendFunc const&);
-
-	// CCDrawNode(cocos2d::CCDrawNode const&);
-	// CCDrawNode();
-	void clear();
-	void drawCircle(cocos2d::CCPoint const&, float, cocos2d::_ccColor4F const&, float, cocos2d::_ccColor4F const&, unsigned int);
-	void drawCubicBezier(cocos2d::CCPoint const&, cocos2d::CCPoint const&, cocos2d::CCPoint const&, cocos2d::CCPoint const&, unsigned int, cocos2d::_ccColor4F const&);
-	void drawDot(cocos2d::CCPoint const&, float, cocos2d::_ccColor4F const&);
-	void drawLines(cocos2d::CCPoint*, unsigned int, float, cocos2d::_ccColor4F const&);
-	void drawPolygon(cocos2d::CCPoint*, unsigned int, cocos2d::_ccColor4F const&, float, cocos2d::_ccColor4F const&);
-	void drawPreciseCubicBezier(cocos2d::CCPoint const&, cocos2d::CCPoint const&, cocos2d::CCPoint const&, cocos2d::CCPoint const&, unsigned int, cocos2d::_ccColor4F const&);
-	void drawRect(cocos2d::CCPoint const&, cocos2d::CCPoint const&, cocos2d::_ccColor4F const&, float, cocos2d::_ccColor4F const&);
-	void drawSegment(cocos2d::CCPoint const&, cocos2d::CCPoint const&, float, cocos2d::_ccColor4F const&);
-	void ensureCapacity(unsigned int);
-	void listenBackToForeground(cocos2d::CCObject*);
-	void render();
-
-	virtual bool init();
-	virtual void draw();
-}
-
 // [[link(win)]]
 // class cocos2d::CCEGLView {
 // 	// CCEGLView();
@@ -1574,32 +1547,6 @@ class cocos2d::CCIMEDispatcher {
 	bool hasDelegate();
 	void removeDelegate(cocos2d::CCIMEDelegate*);
 	static cocos2d::CCIMEDispatcher* sharedDispatcher();
-}
-
-[[link(win, android)]]
-class cocos2d::CCImage {
-	bool initWithImageData(void*, int, cocos2d::CCImage::EImageFormat, int, int, int, int);
-	bool initWithImageFile(char const*, cocos2d::CCImage::EImageFormat);
-	bool initWithImageFileThreadSafe(char const*, cocos2d::CCImage::EImageFormat);
-	bool initWithString(char const*, int, int, cocos2d::CCImage::ETextAlign, char const*, int);
-
-	int getBitsPerComponent() const;
-	unsigned char* getData();
-	int getDataLen();
-	unsigned short getHeight() const;
-	unsigned short getWidth() const;
-
-	// CCImage();
-	bool _initWithJpgData(void*, int);
-	bool _initWithPngData(void*, int);
-	bool _initWithRawData(void*, int, int, int, int, bool);
-	bool _initWithTiffData(void*, int);
-	bool _initWithWebpData(void*, int);
-	bool _saveImageToJPG(char const*);
-	bool _saveImageToPNG(char const*, bool);
-	bool hasAlpha();
-	bool isPremultipliedAlpha();
-	bool saveToFile(char const*, bool);
 }
 
 [[link(win, android)]]

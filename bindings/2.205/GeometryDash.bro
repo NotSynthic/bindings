@@ -1209,9 +1209,13 @@ class CCTextInputNode : cocos2d::CCLayer, cocos2d::CCIMEDelegate, cocos2d::CCTex
 		m_placeholderColor = color;
 		this->refreshLabel();
 	}
-    	void setAllowedChars(gd::string filter) {
-        	m_allowedChars = filter;
-    	}
+	void setAllowedChars(gd::string filter) {
+		m_allowedChars = filter;
+	}
+	cocos2d::CCLabelBMFont* getPlaceholderLabel() {
+        return m_placeholderLabel;
+    }
+	
 	TodoReturn addTextArea(TextArea*);
 	TodoReturn forceOffset();
 	gd::string getString() {
@@ -2969,11 +2973,15 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
 	LevelEditorLayer* m_editorLayer;
 	cocos2d::CCPoint m_swipeStart;
 	cocos2d::CCPoint m_swipeEnd;
-	PAD = mac 0x8, win 0x8, android32 0x8;
+	PAD = mac 0x8, win 0x8, android32 0x8, android64 0x8;
 	cocos2d::CCPoint m_lastTouchPoint;
 	cocos2d::CCPoint m_cameraTest;
 	cocos2d::CCPoint m_clickAtPosition;
 	GameObject* m_selectedObject;
+	void* m_unk530;
+	void* m_unk538;
+	void* m_unk540;
+	int m_selectedTab;
 }
 
 [[link(android)]]
@@ -4934,19 +4942,19 @@ class GameObject : CCSpritePlus {
 	virtual void setFlipX(bool);
 	virtual void setFlipY(bool);
 	virtual TodoReturn firstSetup();
-	virtual TodoReturn customSetup();
+	virtual void customSetup();
 	virtual TodoReturn setupCustomSprites(gd::string);
 	virtual TodoReturn addMainSpriteToParent(bool);
 	virtual TodoReturn resetObject();
 	virtual TodoReturn triggerObject(GJBaseGameLayer*, int, gd::vector<int> const*);
-	virtual TodoReturn activateObject();
-	virtual TodoReturn deactivateObject(bool);
+	virtual void activateObject();
+	virtual void deactivateObject(bool);
 	virtual TodoReturn transferObjectRect(cocos2d::CCRect&);
-	virtual TodoReturn getObjectRect();
-	virtual TodoReturn getObjectRect(float, float);
+	virtual cocos2d::CCRect const& getObjectRect();
+	virtual cocos2d::CCRect getObjectRect(float, float);
 	virtual TodoReturn getObjectRect2(float, float);
 	virtual TodoReturn getObjectTextureRect();
-	virtual TodoReturn getRealPosition();
+	virtual cocos2d::CCPoint getRealPosition();
 	virtual void setStartPos(cocos2d::CCPoint);
 	virtual TodoReturn updateStartValues();
 	virtual TodoReturn customObjectSetup(gd::vector<gd::string>&, gd::vector<void*>&);
@@ -6203,8 +6211,12 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
 	PAD = android32 0xb0, android64 0x148;
 	UILayer* m_uiLayer;
 	PAD = android32 0x24, android64 0x40;
-	gd::vector<GameObject*> m_sections;
-	PAD = android32 0x126, android64 0x1c8;
+	gd::vector<GameObject*> m_sections; // 2c2c
+	PAD = android32 0x118, android64 0x1A8;
+	cocos2d::CCDrawNode* m_debugDrawNode; // android32 = 0x2d50, android64 = 0x3668
+	PAD = android32 0x4, android64 0x8;
+	bool m_isDebugDrawEnabled;
+	PAD = android32 0x5, android64 0x9;
 }
 
 [[link(android)]]
@@ -10995,7 +11007,7 @@ class PlayerObject : GameObject, AnimatedSpriteDelegate {
 	virtual void setFlipX(bool);
 	virtual void setFlipY(bool);
 	virtual TodoReturn resetObject();
-	virtual TodoReturn getRealPosition();
+	virtual cocos2d::CCPoint getRealPosition();
 	virtual TodoReturn getOrientedBox();
 	virtual TodoReturn getObjectRotation();
 	virtual TodoReturn animationFinished(char const*);
@@ -11186,7 +11198,7 @@ class PlayLayer : GJBaseGameLayer, CCCircleWaveDelegate, CurrencyRewardDelegate,
 	TodoReturn addToGroupOld(GameObject*);
 	TodoReturn applyCustomEnterEffect(GameObject*, bool);
 	TodoReturn applyEnterEffect(GameObject*, int, bool);
-	TodoReturn canPauseGame();
+	bool canPauseGame();
 	TodoReturn checkpointWithID(int);
 	TodoReturn colorObject(int, cocos2d::ccColor3B);
 	TodoReturn commitJumps();
