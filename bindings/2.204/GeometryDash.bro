@@ -7782,7 +7782,7 @@ class GJSearchObject : cocos2d::CCNode {
 
 [[link(android)]]
 class GJShaderState {
-	TodoReturn reset();
+	TodoReturn reset() = win 0x37b410;
 	TodoReturn stopTweenAction(int);
 	TodoReturn timesyncShaderAction(int);
 	TodoReturn timesyncShaderActions();
@@ -13918,7 +13918,7 @@ class ShaderLayer : cocos2d::CCLayer {
 	TodoReturn preShockLineShader();
 	TodoReturn preShockWaveShader();
 	TodoReturn preSplitScreenShader();
-	TodoReturn resetAllShaders();
+	TodoReturn resetAllShaders() = win 0x383fe0;
 	TodoReturn resetTargetContainer();
 	TodoReturn setupBulgeShader();
 	TodoReturn setupChromaticGlitchUniforms();
